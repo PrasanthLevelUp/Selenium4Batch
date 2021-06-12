@@ -30,6 +30,10 @@ public class XpathDemo {
 		//ul[@class='dropdown-menu' or @role='menu1']
 		*/
 		
+		
+		//starts-with - //label[starts-with(@id,'victor')]
+		//texted method -  //label[text()='abcd']
+		
 		System.setProperty("webdriver.chrome.driver", "G:\\Selenium Drivers\\chromedriver_win32 (1)\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://demoqa.com/automation-practice-form");
