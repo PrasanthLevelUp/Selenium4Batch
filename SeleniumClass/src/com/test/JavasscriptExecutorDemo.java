@@ -67,7 +67,9 @@ public class JavasscriptExecutorDemo {
 			}
 			}
 	}
-
+		js.executeScript("document.getElementById('hobbies-checkbox-1').checked=false;");
+		js.executeScript("document.getElementById('hobbies-checkbox-2').checked=true;");
+		
 		WebElement smt = driver.findElement(By.xpath("//button[@id='submit']"));
 		//js.executeScript("arguments[0].click();", smt);
 		js.executeScript("document.getElementById('submit').click();");
