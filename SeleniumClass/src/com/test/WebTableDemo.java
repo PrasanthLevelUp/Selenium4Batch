@@ -20,12 +20,14 @@ public class WebTableDemo {
 		
 		for(int i=0;i<trows.size();i++) {
 			String colhead = trows.get(i).findElement(By.tagName("th")).getText();
-			if(colhead.equalsIgnoreCase("Clock Tower Hotel")) {
+			if(colhead.equalsIgnoreCase("Financial Center")) {	
 				List<WebElement> tcolums = trows.get(i).findElements(By.tagName("td"));
 				System.out.println(tcolums.size());
 				for(int j=0;j<tcolums.size();j++) {
 					System.out.println(tcolums.get(j).getText());
 				}
+				
+				//System.out.println(tcolums.get(0).getText());
 				break;
 			}
 		}

@@ -3,18 +3,35 @@ package com.test;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CHeckboxdemo {
+public class JavasscriptExecutorDemo {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 		System.setProperty("webdriver.chrome.driver", "G:\\Selenium Drivers\\chromedriver_win32 (1)\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://demoqa.com/automation-practice-form");
 		driver.manage().window().maximize();
 		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		//js.executeScript("alert('Test Succefull');");
+		String jsurl = js.executeScript("return document.URL;").toString();
+		System.out.println(jsurl);
+		
+		//js.executeScript("window.location='https://www.redbus.com/'");
+		
+		js.executeScript("document.getElementById('firstName').value='Victor';");
+		
+		//scroll - pixel x, y ---|||||
+		js.executeScript("window.scrollBy(0,400)");
+		
+		String url = driver.getCurrentUrl();
+		System.out.println(url);
+
 		String hbooies = "Sports";
 		String[] hob = hbooies.split(",");
 		System.out.println(hob[0]);
@@ -40,8 +57,8 @@ public class CHeckboxdemo {
 			if (names.equals(hob[j])) {
 				//icon.click();
 				name.click();
-				Thread.sleep(2000);
-				name.click();
+		
+				//name.click();
 				if(icon.isSelected()) {
 					System.out.println("Is selected");
 				}else {
@@ -50,6 +67,10 @@ public class CHeckboxdemo {
 			}
 			}
 	}
+
+		WebElement smt = driver.findElement(By.xpath("//button[@id='submit']"));
+		//js.executeScript("arguments[0].click();", smt);
+		js.executeScript("document.getElementById('submit').click();");
 
 	}
 
