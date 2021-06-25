@@ -19,6 +19,12 @@ public class WebCalenderDemo {
 		driver.findElement(By.xpath("//input[@id='src']")).sendKeys("Chennai, Tamil Nadu, India");
 		driver.findElement(By.xpath("//input[@id='dest']")).sendKeys("Coimbatore, Tamil Nadu, India");
 		
+		
+		String fontsize = driver.findElement(By.xpath("//label[contains(text(),'Onward Date')]")).getCssValue("font-size");
+		System.out.println(fontsize);
+		
+		String fontfamily = driver.findElement(By.xpath("//label[contains(text(),'Onward Date')]")).getCssValue("font-family");
+		System.out.println(fontfamily);
 		driver.findElement(By.xpath("//label[contains(text(),'Onward Date')]")).click();
 				
 		List<WebElement> onwordscal = driver.findElements(By.xpath("//div[@id='rb-calendar_onward_cal']//tbody//tr"));
@@ -38,10 +44,11 @@ public class WebCalenderDemo {
 		
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		
+		//driver.findElement(By.xpath("//label[contains(text(),'Return Date')]")).click();
 		WebElement returndate = driver.findElement(By.xpath("//input[@id='return_cal']"));
 		js.executeScript("arguments[0].removeAttribute('readonly')", returndate);
-		js.executeScript("arguments[0].setAttribute('data-caleng','24-Jun-2021')", returndate);
+		WebElement newreturndate = driver.findElement(By.xpath("//input[@id='return_cal']"));
+		js.executeScript("arguments[0].setAttribute('data-caleng','25-Jun-2021')", newreturndate);
 		//23-Jun-2021
 		//driver.close();
 	}
